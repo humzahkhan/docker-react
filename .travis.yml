@@ -1,9 +1,16 @@
-sudo: true
-services:
-  - docker
-
-before_install:
-  - docker build -t humzahkhan/docker-react -f Dockerfile.dev .
-
-script:
-  - docker run -e CI=true USERNAME/docker-react npm run test
+{
+  "os": [
+    "linux"
+  ],
+  "sudo": true,
+  "script": [
+    "docker run -e CI=true USERNAME/docker-react npm run test"
+  ],
+  "language": "ruby",
+  "services": [
+    "docker"
+  ],
+  "before_install": [
+    "docker build -t humzahkhan/docker-react -f Dockerfile.dev ."
+  ]
+}
